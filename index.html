@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Arya 🎂❤️</title>
+
+<style>
+    body{
+        margin:0;
+        padding:0;
+        font-family:'Poppins', sans-serif;
+        background:linear-gradient(135deg,#ffd1e8,#e6ccff,#ffd1e8);
+        text-align:center;
+        overflow:hidden;
+    }
+
+    h1,h2,p{
+        color:#ff2f75;
+    }
+
+    #introBox, #puzzleBox, #mainBox{
+        width:85%;
+        margin:auto;
+        margin-top:80px;
+        display:none;
+        animation:fadeIn 1.5s;
+    }
+
+    #introBox{
+        display:block;
+        font-size:22px;
+        line-height:32px;
+    }
+
+    button{
+        font-size:22px;
+        padding:12px 28px;
+        margin:15px;
+        border:none;
+        border-radius:12px;
+        cursor:pointer;
+    }
+
+    .yes{
+        background:#ff2f75;
+        color:white;
+    }
+
+    .no{
+        background:white;
+        color:#ff2f75;
+        border:2px solid #ff2f75;
+        position:relative;
+    }
+
+    @keyframes fadeIn{
+        from{opacity:0; transform:translateY(30px);}
+        to{opacity:1; transform:translateY(0);}
+    }
+
+    .heart{
+        position:fixed;
+        font-size:25px;
+        animation:float 4s linear;
+    }
+
+    @keyframes float{
+        0%{transform:translateY(0); opacity:1;}
+        100%{transform:translateY(-160px); opacity:0;}
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="https://files.catbox.moe/4ql7ok.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+document.addEventListener("click",()=>{
+    document.getElementById("bgMusic").play();
+});
+</script>
+
+<!-- Floating Hearts -->
+<script>
+function createHearts(){
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.top="100vh";
+    heart.style.fontSize=(20+Math.random()*20)+"px";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),4000);
+}
+setInterval(createHearts,300);
+</script>
+
+<!-- INTRO -->
+<div id="introBox">
+    <h1>Hey Arya 🎂❤️</h1>
+    <p>
+        Aaj ka din thoda special hai…  
+        kyunki aaj woh ladki paida hui  
+        jo apni smile se sab kuch better bana deti hai ✨<br><br>
+
+        Arya, tumhari presence alag hi feel deti hai —  
+        calm si, sweet si, aur bohot real 💖<br><br>
+
+        Swaroop ki taraf se  
+        tumhare liye ek chhota sa surprise 🎁
+    </p>
+
+    <button class="yes" onclick="startPuzzle()">Open Surprise 💝</button>
+</div>
+
+<!-- PUZZLE -->
+<div id="puzzleBox">
+    <h2>Chhota sa sawaal 😄</h2>
+    <p style="font-size:20px;">
+        Kaunsa din sirf ek insaan ke liye  
+        sabse zyada special hota hai?
+    </p>
+
+    <button class="yes" onclick="showMain()">Mera Birthday 😌🎂</button>
+</div>
+
+<!-- MAIN -->
+<div id="mainBox">
+    <h2 style="font-size:32px;">Happy Birthday Arya ❤️🎉</h2>
+    <p style="font-size:22px;">
+        Arya,  
+        Swaroop bas itna kehna chahta hai —  
+        tum jahan hoti ho,  
+        wahan vibes automatically better ho jaati hain 💗<br><br>
+
+        Iss naye saal me  
+        tumhe woh sab mile jo tum deserve karti ho —  
+        khushi, sukoon, aur endless smiles ✨<br><br>
+
+        Ek wish maangu aaj? 😌
+    </p>
+
+    <button class="yes" onclick="sayYes()">Haan 💖</button>
+    <button class="no" id="noBtn" onclick="noMove()">Nahi 😝</button>
+
+    <p id="noMsg" style="font-size:20px;"></p>
+</div>
+
+<script>
+function startPuzzle(){
+    introBox.style.display="none";
+    puzzleBox.style.display="block";
+}
+
+function showMain(){
+    puzzleBox.style.display="none";
+    mainBox.style.display="block";
+}
+
+let noClick=0;
+function noMove(){
+    noClick++;
+    let btn=document.getElementById("noBtn");
+    let msg=document.getElementById("noMsg");
+
+    if(noClick==1){
+        msg.innerHTML="Birthday pe no allowed nahi hai 😜";
+        btn.style.position="absolute";
+        btn.style.left=Math.random()*70+"%";
+        btn.style.top=Math.random()*70+"%";
+    }else{
+        msg.innerHTML="Option hata diya 😄";
+        btn.style.display="none";
+    }
+}
+
+function sayYes(){
+    document.body.innerHTML=`
+    <h1 style="margin-top:70px; font-size:42px; color:#ff0055;">
+        Tumhari Smile Hi Gift Hai 🎂💖
+    </h1>
+
+    <p style="font-size:22px; line-height:32px; width:85%; margin:auto;">
+        Arya,  
+        tumhara birthday sirf ek date nahi…  
+        woh din hai jab duniya ko  
+        ek bohot khoobsurat soul mili 🌸<br><br>
+
+        Swaroop hamesha chahega  
+        ki tum khush raho,  
+        apne sapno ke saath aage badhti raho,  
+        aur kabhi apni worth bhoolo nahi ✨
+    </p>
+
+    <h2 style="margin-top:40px; font-size:30px; color:#ff2f75;">
+        — Happy Birthday once again,<br>
+        <strong>Swaroop ❤️</strong>
+    </h2>
+
+    <div style="font-size:50px; margin-top:30px;">
+        🎂💖🎉💞✨
+    </div>
+    `;
+}
+</script>
+
+</body>
+</html>
